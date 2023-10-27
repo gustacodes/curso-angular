@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Animal } from 'src/app/interfaces/Animal';
+import { Person } from 'src/app/interfaces/Person';
 import { ListService } from 'src/app/serivce/list.service';
 @Component({
   selector: 'app-list-render',
@@ -27,6 +28,15 @@ export class ListRenderComponent {
     console.log('Removendo animal...');
     this.animals = this.listService.remove(this.animals, animal);
     
+  }
+
+  persons: Person[] = [
+    {name: "Gustavo", age: 31},
+    {name: "Pamella", age: 31}
+  ]
+
+  removePerson(person: Person) {
+    this.persons = this.listService.removePerson(this.persons, person);
   }
 
 }
