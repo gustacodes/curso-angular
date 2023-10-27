@@ -12,6 +12,7 @@ export class ListService {
 
   private apiUrl = 'http://localhost:3000/animals'
   private apiCats = 'https://api.thecatapi.com/v1/images/search?limit=2'
+  private umGato = 'https://api.thecatapi.com/v1/images'
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +22,10 @@ export class ListService {
 
   getGatos(): Observable<Cats[]> {
     return this.http.get<Cats[]>(this.apiCats);
+  }
+
+  getGato(id: any): Observable<Cats> {
+    return this.http.get<Cats>(`${this.umGato}/${id}`)
   }
 
   getAll(): Observable<Animal[]> {

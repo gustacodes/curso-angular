@@ -4,12 +4,14 @@ import { FirstComponentComponent } from "./components/first-component/first-comp
 import { ListRenderComponent } from "./components/list-render/list-render.component";
 import { EmiterComponent } from "./components/emiter/emiter.component";
 import { ConsumirComponent } from "./components/consumir/consumir.component";
+import { ItemDetailComponent } from "./components/item-detail/item-detail.component";
 
 const routes: Routes = [
     {path: '', component: FirstComponentComponent},
     {path: 'list', component: ListRenderComponent},
     {path: 'change', component: EmiterComponent},
-    {path: 'cats', component: ConsumirComponent}
+    {path: 'cats', component: ConsumirComponent},
+    {path: 'cats/:id', component: ItemDetailComponent}
 ]
 
 @NgModule({
