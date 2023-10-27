@@ -9,14 +9,11 @@ import { ListService } from 'src/app/serivce/list.service';
 })
 export class ListRenderComponent {
 
-  constructor(private listService: ListService) {}
+  constructor(private listService: ListService) {
+    this.getAnimals()
+  }
 
-  animals: Animal[] = [
-    {name: "Nick", type: "Dog", age: 1},
-    {name: "Tom", type: "Cat", age: 5},
-    {name: "Frida", type: "Dog", age: 2},
-    {name: "Bob", type: "Horse", age: 6}
-  ]
+  animals: Animal[] = []
 
   animalDetails = ''
 
@@ -25,9 +22,12 @@ export class ListRenderComponent {
   }
 
   removeAnimal(animal: Animal) {
-    console.log('Removendo animal...');
     this.animals = this.listService.remove(this.animals, animal);
     
+  }
+
+  getAnimals(): void {
+    this.listService.getAll().subscribe((animals) => (this.animals = animals));
   }
 
   persons: Person[] = [
